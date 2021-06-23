@@ -2,23 +2,12 @@ const path = require("path");
 const webpack = require("webpack");
 const RefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 const CleanTerminalPlugin = require("clean-terminal-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 //https://webpack.js.org/concepts/
-module.exports = env => {
-  // $RefreshSig$ 오류, plugin 남아 있을 때 오류 발생.
-  let pluginsRules = [
-    "@babel/plugin-proposal-class-properties",
-    //* build할 때 플러그인 주석필요.
-    "react-refresh/babel",
-    //*/
-  ];
-  let pluginsClass = [
-    new webpack.LoaderOptionsPlugin({ debug: true }),
-    //* build할 때 플러그인 주석필요.
-    new RefreshWebpackPlugin(),
-    new CleanTerminalPlugin(),
-    //*/
-  ];
+module.exports = (env) => {
+  const isEnvDevelopment = env.mode === "development";
+  const isEnvProduction = env.mode === "production";
   return {
     name: "default-setting",
     mode: env.mode || "development",
@@ -52,21 +41,30 @@ module.exports = env => {
               ],
               "@babel/preset-react",
             ],
-            plugins: env.build ? [] : pluginsRules,
+            plugins: [isEnvDevelopment && "@babel/plugin-proposal-class-properties", isEnvDevelopment && "react-refresh/babel"].filter(Boolean),
           },
         },
       ],
     },
-    plugins: env.build ? [] : pluginsClass,
+    plugins: [
+      new HtmlWebpackPlugin({
+        inject: false,
+        template: "./index.html",
+      }),
+      isEnvDevelopment && new webpack.LoaderOptionsPlugin({ debug: true }),
+      isEnvDevelopment && new RefreshWebpackPlugin(),
+      isEnvDevelopment && new CleanTerminalPlugin(),
+    ].filter(Boolean),
     output: {
       path: path.join(__dirname, "build"), // 절대경로를 표시
-      filename: "app.js",
-      publicPath: "/build/", //express.static 처럼 경로를 나타냄
+      filename: "public/app.js",
+      // publicPath: "/", //express.static 처럼 경로를 나타냄
     }, //출력
     devServer: {
-      publicPath: "/build/",
+      publicPath: "/",
       hot: true,
       port: 3000,
+      historyApiFallback: true,
     },
   };
 };

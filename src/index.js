@@ -5,7 +5,7 @@ import App from "components/App";
 function startApp() {
   ReactDOM.render(<App />, document.querySelector("#root"));
 }
-if (window.cordova) {
+if (window.cordova) { 
   document.addEventListener("deviceready", startApp, false);
 } else {
   startApp();
