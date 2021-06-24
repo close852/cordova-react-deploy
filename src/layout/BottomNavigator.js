@@ -39,7 +39,7 @@ function BottomNavigator() {
     <Container>
       <div className="padding"></div>
       <BottomNav>
-        <NavBox to="home" text="홈" />
+        <NavBox to="/home" text="홈" />
         <NavBox to="main" text="메인" />
         <NavBox to="chat" text="채팅" />
         <NavBox to="setting" text="설정" />

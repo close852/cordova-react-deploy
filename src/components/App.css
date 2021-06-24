@@ -1,0 +1,31 @@
+/* appear - on page load */
+.fade-appear {
+  display: none;
+}
+.fade-appear.fade-appear-active {
+  display: none;
+}
+
+/* enter */
+.fade-enter {
+  opacity: 0;
+  /* display: none; */
+}
+.fade-enter.fade-enter-active {
+  /* display: none; */
+  opacity: 1;
+  transition: opacity 300ms linear;
+}
+.fade-enter.fade-enter-done {
+  /* display: none; */
+  opacity: 1;
+  /* transition: opacity 10000ms linear; */
+}
+
+/* exit */
+.fade-exit {
+  display: none;
+}
+.fade-exit.fade-exit-active {
+  display: none;
+}

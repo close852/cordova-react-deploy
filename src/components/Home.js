@@ -78,11 +78,11 @@ function Item() {
   return (
     <Element>
       <Thumb>
-        <img src="/public/thumb.jpg" />
+        <img src="public/thumb.jpg" />
       </Thumb>
       <Content>
         <div className="title">2021 봄, 자라나는 온라인 사역의 싹( 간사, CCC)</div>
-        <div className="desc">시간</div>
+        <div className="desc">2021.11.23 16:23</div>
         <div className="icons">
           <div>
             <IoChatbubbleOutline size="15px" />
