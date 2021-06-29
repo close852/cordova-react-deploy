@@ -23,7 +23,6 @@ function Home() {
         새소식
         <div>&gt;</div>
       </div>
-      {/* <Item /> */}
       {listData}
     </Container>
   );

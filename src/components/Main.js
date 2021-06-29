@@ -3,10 +3,11 @@ import styled from "styled-components";
 import { IoCheckmarkCircleOutline, IoChatbubbleOutline } from "react-icons/io5";
 
 function Main() {
-  let size = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; //, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
+  let size = [1, 2, 3, 4, 5]; //, 6, 7, 8, 9, 10]; //, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
   const listData = size.map((item) => <Item />);
+  const Container = styled.div``;
 
-  return <>{listData} </>;
+  return <Container>{listData} </Container>;
 }
 
 function Item() {

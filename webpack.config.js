@@ -62,7 +62,6 @@ module.exports = (env) => {
     output: {
       path: path.join(__dirname, "build"), // 절대경로를 표시
       filename: "public/app.js",
-      // publicPath: "/", //express.static 처럼 경로를 나타냄
     }, //출력
     devServer: {
       publicPath: "/",

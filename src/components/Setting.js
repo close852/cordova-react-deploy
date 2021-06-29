@@ -71,8 +71,8 @@ function Setting() {
         </div>
       </Profile>
       <ListPane>
-        <Item svg={<IoHappyOutline size="25px" />} title="텍스트" link="" />
-        <Item svg={<IoHappyOutline size="25px" />} title="텍스트" link="" />
+        <Item svg={<IoHappyOutline size="25px" />} title="텍스트" link="test" />
+        <Item svg={<IoHappyOutline size="25px" />} title="텍스트" link="test2" />
         <Item svg={<IoHappyOutline size="25px" />} title="텍스트" link="" />
         <Item svg={<IoHappyOutline size="25px" />} title="텍스트" link="" />
       </ListPane>

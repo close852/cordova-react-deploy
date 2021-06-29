@@ -40,9 +40,9 @@ function BottomNavigator() {
       <div className="padding"></div>
       <BottomNav>
         <NavBox to="/home" text="홈" />
-        <NavBox to="main" text="메인" />
-        <NavBox to="chat" text="채팅" />
-        <NavBox to="setting" text="설정" />
+        <NavBox to="/main" text="메인" />
+        <NavBox to="/chat" text="채팅" />
+        <NavBox to="/setting" text="설정" />
       </BottomNav>
     </Container>
   );
@@ -52,9 +52,20 @@ function NavBox({ to, text }) {
     width: 100%;
     height: 100%;
   `;
+  console.log("location > ", location.pathname, to);
+  const isActive = location.pathname === to;
   return (
     <Ripples>
-      <NavLink to={to} activeClassName="active">
+      <NavLink
+        to={to}
+        replace={true}
+        activeClassName="active"
+        onClick={(e) => {
+          if (isActive) {
+            e.preventDefault();
+          }
+        }}
+      >
         <Box>{text}</Box>
       </NavLink>
     </Ripples>
